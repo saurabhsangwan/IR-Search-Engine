@@ -21,6 +21,8 @@
  non-relevant results.  
  
  [Github Link](https://github.com/saurabhsangwan/IR-Search-Engine)
+ Note- Github will not contain the database file and pre-built indexes because of size limit.
+ 
  ---
  ---
  ## 1. Software Description
@@ -187,17 +189,62 @@ from the relevant set of documents to the query, in this order avoiding duplicat
 
 ## 5. Evaluation 
 
-1 Query - Cornelia
+1 Query - "Cornelia"
 
 * Pseudo Relevance Feedback - 
 The results inluded links to the professor's(Cornelia Caragea, PhD) profile page, while also
 including links to the all professors(CS Dept.) TA hours, an article welcoming her to UIC, profile pages 
 of professors with similar research interests(Shanon Reckinger and Evan McCarty), and a couple of articles
-about UIC projects and grants received in such areas.
+about UIC projects and grants received in such areas. All the results were relevant. (Precison - 1.0)
+* Relevance Feedback - After marking the profile page of Prof Shanon Reckinger as non relevant, we get a list 
+of only four pages. The profile page of professor's(Cornelia Caragea, PhD), Office hours page and articles mentioning her.
+All the results are considered relevant. (Precision - 1.0)
 
+2. Query - "jobs and internship"
+* Pseudo Relevance Feedback - All the results included references to internship and job programs at Engineering Career Center,
+we consider all these as relevant. (Precision -1.0)
+* Relevance Feedback - After marking and internship result as irrelevant, we are only left with links
+containing job references mostly from "jobs.uic.edu" and some from individual departments job postings page like
+"Academic Computing and Communications Center"(https://accc.uic.edu/jobs/). All results were relevant.
+(Precision -1.0)
+
+3. Query "compute science admission"
+* Pseudo Relevance Feedback - Relevant results included references to "cs.uic.edu" graduate and undergraduate 
+admisson's pages, and faq pages(count 8). Non-relevant results included references to "https://admissions.uic.edu/"
+contact page and undergraduate admissons page(count 2). (Precision - 0.8)
+* Relevance Feedback - After marking the non-relevant pages as such. The relevant results included the 
+earlier references to relevant pages(count-6). The changed results included references to Computer Science
+Department Calendar and profiles of some faculty(Non relevant, count-4). (Precision - 0.6)
+
+4. Query - "career fair"
+* Pseudo Relevance Feedback - Relevant results includes links to "ecc.uic.edu" career and career fair pages, 
+and "careerservices.edu" career fair page(count 7). Non relevant results included - links to LinkedIn 
+workshop, alumni pages(count 3). (Precision - 0.7)
+* Relevance Feedback - On marking the "https://ecc.uic.edu/engineering-career-fair/" page as relevant, the results
+did not change. (Precision - 0.7)
+
+5. Query - "scholarship"
+* Pseudo Relevance Feedback - Relevant results included links to Office of International Affair's funding opportunites, sources, and
+scholarship results. They also included results from "https://scholarships.uic.edu/" external scholarship page(Count 8).
+Non Relevant Results included results from "give.uic.edu" which was about donating money to funds and scholarships, not
+relevant in the user context(Count-2). (Precision - 0.8) 
+* Relevance Feedback - On marking the "https://scholarships.uic.edu/scholarships/external-scholarships/" page as relevant.
+The results were all relevant to the query including further links from "SnAP" - Scholarship and Awards Program and "studyabroad.uic".
+(Precision - 1.0)
 
 ## 6. Results
 
+Based on the original query the intelligent components were able to make some improvements. 
+* Pseudo Relevance Feedback was always able to expand the set of retrieved documents. This worked really 
+well when the original query could find only find a small set of documents. E.g. Query 'cornelia' could originally 
+fetch only 4 documents. 
+
+* From this expanded set, I was better able to narrow down my results(by formulating a better query) using Relevance Feedback by marking
+the relevant and non-relevant results as such. 
+
+Things that did not work - 
+* Using Pseudo Relevance Feedback, sometimes the best results were not the top ranked documents,
+this happened because of query expansion and reduced weight of the original query terms. 
 
 ## 7. Related Work
 

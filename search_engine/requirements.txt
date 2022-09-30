@@ -8,7 +8,7 @@ click==7.1.2
 cryptography==2.9.2
 Django==3.0.5
 idna==2.9
-joblib==0.14.1
+joblib==1.2.0
 nltk==3.5
 numpy==1.18.3
 pandas==1.0.3
